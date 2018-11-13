@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import BookShelf from './BookShelf';
+import {Link} from "react-router-dom";
 
 class BookCase extends Component{
   state = {}
@@ -56,11 +57,12 @@ class BookCase extends Component{
               {shelves && shelves.map((shelf) => (<BookShelf
                 key={shelf.name}
                 shelf={shelf}
+                onChangeShelf={this.props.onChangeShelf}
               />))}
             </div>
           </div>
           <div className="open-search">
-            <a onClick={() => this.setState({ showSearchPage: true})}>Add a Book</a>
+            <Link to='/search'>Add a Book</Link>
           </div>
         </div>
       </div>
