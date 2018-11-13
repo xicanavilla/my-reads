@@ -17,3 +17,15 @@ export const sortAllBooks = (list) => {
 
   return newList;
 }
+
+export const mergeShelfSearch = (shelf, search) => {
+  // check if book already exists in the shelf
+  const hashTable = {};
+  shelf.forEach(book => hashTable[book.id] = book.shelf);
+
+  search.forEach(book => {
+    book.shelf = hashTable[book.id] || "none";
+  });
+
+  return search;
+}
